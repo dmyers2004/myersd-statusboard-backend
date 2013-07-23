@@ -1,4 +1,49 @@
 body {
-	font: 13px/16px 'Montserrat', sans-serif;
+	font: 13px/16px'Montserrat', sans-serif;
 	color: #4b4b4b;
+	margin: 0;
+	background-color: black;
+}
+.block {
+	overflow: hidden;
+	float: left;
+	font-size: 24px;
+	line-height: 150%;
+}
+#container {
+	width: 1024px;
+	height: 768px;
+	background-color: white;
+	margin: auto;
+	overflow: hidden;
+}
+#section1 {
+	width: 256px;
+	height: 384px;
+	background-color: lime;
+}
+#section2 {
+	width: 512px;
+	height: 384px;
+	background-color: red;
+}
+#section3 {
+	width: 256px;
+	height: 384px;
+	background-color: blue;
+}
+#section4 {
+	width: 256px;
+	height: 384px;
+	background-color: purple;
+}
+#section5 {
+	width: 256px;
+	height: 384px;
+	background-color: orange;
+}
+#section6 {
+	width: 512px;
+	height: 384px;
+	background-color: navy;
 }
