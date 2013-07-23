@@ -22,11 +22,11 @@ class mainController extends basePublicController {
 		
 		$onready = '';
 		$onready .= $this->section(1,5,'/main/section/1');
-		$onready .= $this->section(2,7,'/main/section/1');
-		$onready .= $this->section(3,9,'/main/section/1');
-		$onready .= $this->section(4,11,'/main/section/1');
-		$onready .= $this->section(5,13,'/main/section/1');
-		$onready .= $this->section(6,18,'/main/section/1');
+		$onready .= $this->section(2,7,'/main/section/2');
+		$onready .= $this->section(3,9,'/main/section/3');
+		$onready .= $this->section(4,11,'/main/section/4');
+		$onready .= $this->section(5,13,'/main/section/5');
+		$onready .= $this->section(6,18,'/main/section/6');
 						
 		return $this->c['view']
 			->set('onready',$onready)
@@ -39,9 +39,10 @@ class mainController extends basePublicController {
 	}
 
 	private function section($id,$seconds,$url) {
-		$y  = 'jQuery.get(\''.$url.'\',function(d,t,j){jQuery(\'#section'.$id.'\').html(d);},\'html\');';
-		$x = $y . 'var section'.$id.'=setInterval(function(){'.$y.'}, '.$seconds.'*1000);';
-		return $x;
+		$y = "/* load it the first time */\ntrigger('$url','$id');\n";
+		$x = "/* set the interval */\nvar section".$id."=setInterval(function(){".$y."}, ".$seconds."*1000);\n";
+		
+		return $y.$x;
 	}
 	
 } /* end controller */
