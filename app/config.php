@@ -22,8 +22,9 @@ $config['dispatch'] = array(
 	),
 
 	'routes' => array(
-		'#^(.*)/(.*)GetAction$#i' => '$1/$2Action',
-		'#^(.*)Controller/(.*)GetAction(.*)$#i' => '$1Controller/$2Action$3'
+		'#^/AjaxGet/section/(.*)$#i' => '/Ajax/main/section/$1',
+		'#^/AjaxGet/(.*)/(.*)$#i' => '/Ajax/$1/$2',
+		'#^/Get/(.*)/(.*)$#i' => '//$1/$2'
 	)
 
 );
@@ -37,19 +38,19 @@ $config['database'] = array(
 
 /* get this from the DB in the future */
 $config['elements'] = array(
-	array(1,4,'/main/section/1'),
-	array(2,5,'/main/section/2'),
-	array(3,6,'/main/section/3'),
-	array(4,7,'/main/section/4'),
-	array(5,8,'/main/section/5'),
-	array(6,9,'/main/section/6'),
-	array(7,1,'/main/section/7'),
-	array(8,2,'/main/section/8'),
-	array(9,3,'/main/section/9'),
-	array(10,4,'/main/section/10'),
-	array(11,5,'/main/section/11'),
-	array(12,6,'/main/section/12'),
-	array(13,7,'/main/section/13'),
+	array(1,4,'/section/1'),
+	array(2,5,'/section/2'),
+	array(3,6,'/section/3'),
+	array(4,7,'/section/4'),
+	array(5,8,'/section/5'),
+	array(6,9,'/section/6'),
+	array(7,1,'/section/7'),
+	array(8,2,'/section/8'),
+	array(9,3,'/section/9'),
+	array(10,4,'/section/10'),
+	array(11,5,'/section/11'),
+	array(12,6,'/section/12'),
+	array(13,7,'/section/13'),
 );
 
 /* PHP HTTP Put handler */

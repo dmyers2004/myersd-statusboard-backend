@@ -42,7 +42,7 @@ class dispatch {
 		$method = (!empty($segs[0])) ? array_shift($segs) : $c['config']['dispatch']['default method'];
 
 		/* what are we looking for? raw route will also contain the "raw" pre router route incase you need it */
-		$c['config']['dispatch']['route'] = $c['config']['dispatch']['raw route'] = rtrim($controller.$c['config']['dispatch']['controller suffix'].'/'.$method.($c['config']['dispatch']['is ajax'] ? $c['config']['dispatch']['ajax prefix'] : '').$c['config']['dispatch']['request'].$c['config']['dispatch']['method suffix'].'/'.implode('/',$segs),'/');
+		$c['config']['dispatch']['route'] = $c['config']['dispatch']['raw route'] = rtrim('/'.($c['config']['dispatch']['is ajax'] ? $c['config']['dispatch']['ajax prefix'] : '').$c['config']['dispatch']['request'].'/'.$controller.'/'.$method.'/'.implode('/',$segs),'/');
 
 		/* call dispatch hook */
 		$c['hooks']->preRouter($c);
@@ -50,7 +50,7 @@ class dispatch {
 		/* run our router http://www.example.com/main/index/a/b/c = mainController/indexGet[Ajax]Action/a/b/c */
 		foreach ($c['config']['dispatch']['routes'] as $regex_path => $switchto) {
 			if (preg_match($regex_path, $c['config']['dispatch']['raw route'])) {
-				$c['config']['dispatch']['route'] = preg_replace($regex_path, $switchto, $c['config']['dispatch']['route']);
+				$c['config']['dispatch']['route'] = preg_replace($regex_path, $switchto, $c['config']['dispatch']['raw route']);
 				break;
 			}
 		}
@@ -58,11 +58,17 @@ class dispatch {
 		/* ok let's explode our post router route */
 		$segs = explode('/',$c['config']['dispatch']['route']);
 
+		/* burn off the 1st slash */
+		array_shift($segs);
+
+		/* new request type if any */
+		$c['config']['dispatch']['request'] = array_shift($segs);
+
 		/* new routed classname and called method */
-		$c['config']['dispatch']['classname'] = '\controllers\\'.array_shift($segs);
+		$c['config']['dispatch']['classname'] = '\controllers\\'.array_shift($segs).$c['config']['dispatch']['controller suffix'];
 		
 		/* new method to call on classname */
-		$c['config']['dispatch']['called method'] = array_shift($segs);
+		$c['config']['dispatch']['called method'] = array_shift($segs).$c['config']['dispatch']['request'].$c['config']['dispatch']['method suffix'];
 
 		/* store what ever is left over in segs */
 		$c['config']['dispatch']['segs'] = $segs;
