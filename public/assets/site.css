@@ -22,40 +22,43 @@ body {
 	-webkit-border-radius: 6px; 
 	border: 2px solid #222;
 	margin: 1px;
+	width: 314px;
+	height: 354px;
 }
 #container {
-	width: 1024px;
-	height: 768px;
+	width: 1920px;
+	height: 1080px;
 	background-color: black;
 	margin: auto;
 	overflow: hidden;
 }
 #section1 {
-	width: 238px;
-	height: 378px;
+	width: 634px;
 }
 #section2 {
-	width: 520px;
-	height: 378px;
-	background-color: red;
 }
 #section3 {
-	width: 248px;
-	height: 378px;
-	background-color: blue;
 }
 #section4 {
-	width: 250px;
-	height: 378px;
-	background-color: purple;
+	width: 634px;
 }
 #section5 {
-	width: 250px;
-	height: 378px;
-	background-color: orange;
+	height: 714px;
 }
 #section6 {
-	width: 506px;
-	height: 378px;
-	background-color: navy;
+}
+#section7 {
+	width: 634px;
+}
+#section8 {
+}
+#section9 {
+}
+#section10 {
+}
+#section11 {
+	width: 634px;	
+}
+#section12 {
+	width: 634px;
 }

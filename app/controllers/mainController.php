@@ -17,32 +17,29 @@ class mainController extends basePublicController {
 
 		new \libraries\view($this->c);
 	}
-	
+
 	public function indexAction() {
-		
+
 		$onready = '';
-		$onready .= $this->section(1,5,'/main/section/1');
-		$onready .= $this->section(2,7,'/main/section/2');
-		$onready .= $this->section(3,9,'/main/section/3');
-		$onready .= $this->section(4,11,'/main/section/4');
-		$onready .= $this->section(5,13,'/main/section/5');
-		$onready .= $this->section(6,18,'/main/section/6');
-						
+
+		foreach ($this->c['config']['elements'] as $e) {
+			$onready .= $this->section($e[0],$e[1],$e[2]);
+		}
 		return $this->c['view']
 			->set('onready',$onready)
 			->set('baseurl',$this->c['config']['dispatch']['base url'],'#')
 			->load('layout');
 	}
-	
+
 	public function sectionAjaxAction($id) {
-		return 'Time '.date(DATE_RFC822).' Section '.$id;
+		return 'Time '.date(DATE_RFC822).'<br>Hi I am Section '.$id.'<br>I refresh ever '.$this->c['config']['elements'][$id-1][1].' seconds';
 	}
 
 	private function section($id,$seconds,$url) {
 		$y = "/* load it the first time */\ntrigger('$url','$id');\n";
 		$x = "/* set the interval */\nvar section".$id."=setInterval(function(){".$y."}, ".$seconds."*1000);\n";
-		
+
 		return $y.$x;
 	}
-	
+
 } /* end controller */

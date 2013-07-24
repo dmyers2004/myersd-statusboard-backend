@@ -18,12 +18,28 @@
 	</head>
 	<body>
 		<div id="container">
+		
 			<div id="section1" class="block"></div>
 			<div id="section2" class="block"></div>
 			<div id="section3" class="block"></div>
 			<div id="section4" class="block"></div>
 			<div id="section5" class="block"></div>
 			<div id="section6" class="block"></div>
+
+			<div id="section7" class="block"></div>
+			<div id="section8" class="block"></div>
+			<div id="section9" class="block"></div>
+			<div id="section10" class="block"></div>
+			<div id="section11" class="block"></div>
+			<div id="section12" class="block"></div>
+
+			<div id="section13" class="block"></div>
+			<div id="section14" class="block"></div>
+			<div id="section15" class="block"></div>
+			<div id="section16" class="block"></div>
+			<div id="section17" class="block"></div>
+			<div id="section18" class="block"></div>
+
 		</div>
 	</body>
 </html>
