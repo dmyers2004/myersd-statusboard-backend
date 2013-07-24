@@ -38,7 +38,7 @@ $config['database'] = array(
 
 /* get this from the DB in the future */
 $config['elements'] = array(
-	array(1,4,'/section/1'),
+	array(1,4,'/chart/section/1'),
 	array(2,5,'/section/2'),
 	array(3,6,'/section/3'),
 	array(4,7,'/section/4'),

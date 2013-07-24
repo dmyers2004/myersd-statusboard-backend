@@ -18,4 +18,7 @@ class basePublicController {
 		$this->c = $c;
 	}
 
+	public function indexAction() {}
+
+
 } /* end controller */

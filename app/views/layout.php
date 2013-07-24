@@ -2,12 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<title>Status Board</title>
 
 		<link href="/assets/site.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="/assets/vendor/chart/Chart.min.js"></script>
 		<script src="/assets/site.js"></script>
 		<script>
 			jQuery(document).ready(function() {
