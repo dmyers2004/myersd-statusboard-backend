@@ -32,12 +32,16 @@ class mainController extends basePublicController {
 	}
 
 	public function sectionAjaxAction($id) {
-		return 'Time '.date(DATE_RFC822).'<br>Hi I am Section '.$id.'<br>I refresh ever '.$this->c['config']['elements'][$id-1][1].' seconds';
+		$data = array('time'=>date(DATE_RFC822),'id'=>$id,'seconds'=>$this->c['config']['elements'][$id-1][1]);
+		
+		return $this->c['view']
+			->set($data)
+			->load('section');
 	}
 
 	private function section($id,$seconds,$url) {
-		$y = "/* load it the first time */\ntrigger('$url','$id');\n";
-		$x = "/* set the interval */\nvar section".$id."=setInterval(function(){".$y."}, ".$seconds."*1000);\n";
+		$y = "trigger('$url','$id');";
+		$x = "var section".$id."=setInterval(function(){".$y."}, ".$seconds."*1000);\n";
 
 		return $y.$x;
 	}
